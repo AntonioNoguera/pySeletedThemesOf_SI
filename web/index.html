@@ -1,52 +1,183 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>BootstrapTesting</title>
+    <title>TEMSELSI</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-    @keyframes move-it {
-    0% {
-        background-position: initial;
-    }
-    100% {
-        background-position: 100px 0px;
-    }
-    }
+        @keyframes move-it {
+            0% {
+                background-position: initial;
+            }
 
-    body {  
-        background: repeating-linear-gradient(
-        45deg,
-        #4D4C7D 0%,
-        #4D4C7D 25%,
+            100% {
+                background-position: 100px 0px;
+            }
+        }
 
-        #363062 25%,
-        #363062 50%,
+        body {
+            background: repeating-linear-gradient(45deg,
+                    #4D4C7D 0%,
+                    #4D4C7D 25%,
 
-        #4D4C7D 50%,
-        #4D4C7D 75%,
+                    #363062 25%,
+                    #363062 50%,
 
-        #363062 75%,
-        #363062 100%
-        );
-        background-size: 100px 100px;
-        animation: move-it 7s linear infinite;
-    }
+                    #4D4C7D 50%,
+                    #4D4C7D 75%,
+
+                    #363062 75%,
+                    #363062 100%);
+            background-size: 100px 100px;
+            animation: move-it 7s linear infinite;
+        } 
+        
+        .btn-continue,.btn-continue:hover:active{
+            background-color: #363062 !important;
+            color:white !important;
+            border: none !important;
+        } 
+        
+        .btn-continue:hover{
+            background-color: #198754 !important;
+            color:white !important;
+        }
+
+        .btn-abort,.btn-abort:hover:active{
+            background-color: #7f7e97 !important;
+            color:white !important;
+            border: none !important;
+        }
+  
+
+        .btn-abort:hover{
+            background-color: #d14545 !important;
+            color:#4e0d0d !important;
+        }
+
     </style>
-    <link href="../Bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
 
 </head>
+
+
 <body id="cuerpo" class="bg-black">
-    <div class="bg-white m-5 row justify-content-center w-80 mx-auto" style="border-radius: 10px; width: 60%;">
+    <div class="bg-white m-5 p-2 row justify-content-center  mx-auto" style="border-radius: 10px; width: 70%;">
+        <!--Arrancan Titulos-->
         <div class="col-12 p-2">
             <h1 class="d-flex justify-content-center">
-                Proyecto de Simulación
-                Frameworks Used:
-                Eel
-                Bootstrap
-            </h1> 
+                Insuficiencia Cardíaca
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, porro? Magni nemo quidem natus neque, dolorum perferendis nesciunt a! Pariatur numquam, eveniet architecto eos eum perspiciatis quaerat voluptate error asperiores.
+            </p>
         </div> 
+        
+        <!-- Arrancan los inputs 
+            Age - int x
+            anemia-bool x
+            diabetes bool x
+             
+            somking, bool x
+            high blood bool, x
+
+            creatine int
+            ejectionint 
+              platelets, 
+              float, serum 
+              creat float,
+               serum sodium int, 
+               time int ignored 
+            -->
+        <!-- Edad -->
+        <div class="col-12">
+            <label for="ageInput" class="form-label" style="font-weight: bold;">Ingrese su edad:</label>
+            <input type="number" class="form-control" id="ageInput" placeholder="Edad: 20">
+        </div>
+         
+        <!-- Contenedor de Selects -->
+        <div class="row mt-2 py-1 ">
+            <div class="col-6 justify-content-center p-1" style="border-right: 1px solid #b8b8b8;">
+                <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Anemia:</label>
+            
+                <div id="anemiaHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
+                    <div class="col-6 d-grid p-0">
+                        <input type="radio" class="btn btn-check btn-block" name="anemia" id="successAnemia" autocomplete="off" checked>
+                        <label class="btn btn-outline-success" for="successAnemia">Sufro Anemia</label>
+                    </div>
+                        
+                    <div class="col-5 d-grid p-0">
+                        <input type="radio" class="btn-check" name="anemia" id="dangerAnemia" autocomplete="off">
+                        <label class="btn btn-outline-danger" for="dangerAnemia">No tengo</label>
+                    </div>  
+                </div>
+            </div>  
+
+            <div class="col-6 justify-content-center p-1" style="border-right: 1px solid #b8b8b8;">
+                <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Diabetes:</label>
+            
+                <div id="anemiaHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
+                    <div class="col-6 d-grid p-0">
+                        <input type="radio" class="btn btn-check btn-block" name="Diabetes" id="successDiabetes" autocomplete="off" checked>
+                        <label class="btn btn-outline-success" for="successDiabetes">Soy Diabético</label>
+                    </div>
+                        
+                    <div class="col-5 d-grid p-0">
+                        <input type="radio" class="btn-check" name="Diabetes" id="dangerDiabetes" autocomplete="off">
+                        <label class="btn btn-outline-danger" for="dangerDiabetes">No tengo</label>
+                    </div>  
+                </div>
+            </div>  
+            
+        </div>
+
+        <!-- Contenedor de Selects -->
+        <div class="row mt-2 py-1 ">
+            <div class="col-6 justify-content-center p-1" style="border-right: 1px solid #b8b8b8;">
+                <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Fumador:</label>
+            
+                <div id="anemiaHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
+                    <div class="col-6 d-grid p-0">
+                        <input type="radio" class="btn btn-check btn-block" name="Fumador" id="successFumador" autocomplete="off" checked>
+                        <label class="btn btn-outline-success" for="successFumador">Fumador Habitual</label>
+                    </div>
+                        
+                    <div class="col-5 d-grid p-0">
+                        <input type="radio" class="btn-check" name="Fumador" id="dangerFumador" autocomplete="off">
+                        <label class="btn btn-outline-danger" for="dangerFumador">No tengo</label>
+                    </div>  
+                </div>
+            </div>  
+
+            <div class="col-6 justify-content-center p-1" style="border-right: 1px solid #b8b8b8;">
+                <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Hipertensión:</label>
+            
+                <div id="anemiaHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
+                    <div class="col-6 d-grid p-0">
+                        <input type="radio" class="btn btn-check btn-block" name="Hipertenso" id="successHipertenso" autocomplete="off" checked>
+                        <label class="btn btn-outline-success" for="successHipertenso">Soy Hipertenso</label>
+                    </div>
+                        
+                    <div class="col-5 d-grid p-0">
+                        <input type="radio" class="btn-check" name="Hipertenso" id="dangerHipertenso" autocomplete="off">
+                        <label class="btn btn-outline-danger" for="dangerHipertenso">No tengo</label>
+                    </div>  
+                </div>
+            </div>  
+            
+        </div>
+
+
+
+        <!-- Bottom Buttons-->
+        <div class="row mt-5 column-gap-1">
+            <button type="button" class="col btn btn-abort">Limpiar</button>
+            <button type="button" class="col btn btn-continue">Consultar</button>
+        </div>
+
     </div>
 </body>
+
 </html>
