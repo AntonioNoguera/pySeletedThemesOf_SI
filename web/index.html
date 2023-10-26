@@ -5,11 +5,39 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>BootstrapTesting</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <style>
+    @keyframes move-it {
+    0% {
+        background-position: initial;
+    }
+    100% {
+        background-position: 100px 0px;
+    }
+    }
+
+    body {  
+        background: repeating-linear-gradient(
+        45deg,
+        #4D4C7D 0%,
+        #4D4C7D 25%,
+
+        #363062 25%,
+        #363062 50%,
+
+        #4D4C7D 50%,
+        #4D4C7D 75%,
+
+        #363062 75%,
+        #363062 100%
+        );
+        background-size: 100px 100px;
+        animation: move-it 11s linear infinite;
+    }
+    </style>
     <link href="../Bootstrap/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body id="cuerpo" class="bg-black" style="background: linear-gradient(to right, #0d3d3f, #21192e)">
+<body id="cuerpo" class="bg-black">
     <div class="bg-white m-5 row justify-content-center w-80 mx-auto" style="border-radius: 10px; width: 60%;">
         <div class="col-12 p-2">
             <h1 class="d-flex justify-content-center">
@@ -17,6 +45,5 @@
             </h1> 
         </div> 
     </div>
-    
 </body>
 </html>
