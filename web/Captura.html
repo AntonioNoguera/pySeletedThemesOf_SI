@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Interfaz de Captura</title>
+ <link rel="stylesheet" href="Index.css">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+ 
+</head>
+<body>
+ <div class="titulo">Genera tu Menú</div>
+ <div class="subtitulo">Distribucion de Platillos</div>
+ <div class="barra rounded">
+    <div class="desayuno" style="width: 30%; height: 100%; float: left; background-color: orange;"></div>
+    <div class="comidas" style="width: 40%; height: 100%; float: left; background-color: green;"></div>
+    <div class="cenas" style="width: 10%; height: 100%; float: left; background-color: blue;"></div>
+    <div class="guarnicion" style="width: 10%; height: 100%; float: left; background-color: yellow;"></div>
+    <div class="postres" style="width: 10%; height: 100%; float: left; background-color: pink;"></div>
+ </div>
+ <div class="porcentajes">
+    <div class="porcentaje-texto desayuno">
+        <span class="color-cuadro naranja"></span>30% desayuno
+    </div>
+    <div class="porcentaje-texto comidas">
+        <span class="color-cuadro verde"></span>40% comidas
+    </div>
+    <div class="porcentaje-texto cenas">
+        <span class="color-cuadro azul"></span>10% cenas
+    </div>
+    <div class="porcentaje-texto guarnicion">
+        <span class="color-cuadro amarillo"></span>10% guarnicion
+    </div>
+    <div class="porcentaje-texto postres">
+        <span class="color-cuadro rosa"></span>10% Postres
+    </div>
+  </div>
+
+
+ <div class="subtitulo">Distribucion en los Patos Fuertes</div>
+
+ <div class="titulo-segundo">Armados</div>
+    <div class="barra-segunda">
+        <div class="No" style="width: 67%; height: 100%; float: left; background-color:black;"></div>
+        <div class="Si" style="width: 33%; height: 100%; float: left; background-color:grey;"></div>
+    </div>
+    <div class="porcentajes titulo-segundo">
+      <div class="porcentaje-texto No">
+        <span class="color-cuadro negro"></span>67% No
+      </div>
+      <div class="porcentaje-texto Si">
+        <span class="color-cuadro gris"></span>33% Si
+      </div>
+    </div>
+  
+ <div class="titulo-tercero">Temperaturas</div>
+    <div class="barra-tercera">
+        <div class="Frio" style="width: 33%; height: 100%; float: left; background-color:lightblue;"></div>
+        <div class="Seco" style="width: 10%; height: 100%; float: left; background-color:cornsilk;"></div>
+        <div class="Caliente" style="width: 57%; height: 100%; float: left; background-color:salmon;"></div>
+    </div>
+    <div class="porcentajes subtitulo-dos">
+      <div class="porcentaje-texto No">
+        <span class="color-cuadro azulclaro"></span>33% Frio
+      </div>
+      <div class="porcentaje-texto Si">
+        <span class="color-cuadro maiz"></span>10% Seco
+      </div>
+      <div class="porcentaje-texto Si">
+        <span class="color-cuadro salmon"></span>57% Caliente
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <form class=" w-75 m-5 rounded bg-dark-subtle">
+            <fieldset>
+                <legend class="text-center bold">Ingresa los valores para tu Menú</legend>
+
+                <div class="row g-3 align-items-center mx-5">
+                    <div class="col-auto">
+                        <label for="dias_servicio" class="form-label">Dias de Servicio</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="number" class="form-control" id="dias_servicio">
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center mx-5">
+                    <div class="col-auto">
+                        <label for="turno_dia" class="form-label">Numero de Turnos por Dia</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="number" class="form-control" id="turno_dia">
+                    </div>
+                    <div class="col-auto p-3">
+                        <div class="row">
+                            <div class="col-auto">
+                                <label for="distribucion" class="form-label">Distribucion de Platillos por turno</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="distribucion" class="form-control" aria-describedby="HelpBlock">
+                                <div id="HelpBlock" class="form-text">
+                                    # de Desayunos...Postres, Separados por " , "
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center mx-5 mb-2 form-check-reverse form-switch">
+                    <div class="col-auto">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Permitir Temperaturas Duplicadas:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input class="form-check-input p-2" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <button type="button" class="btn-cancelar">Cancelar</button>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn-generar">Generar Menú</button>
+        </div>
+    </div>
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

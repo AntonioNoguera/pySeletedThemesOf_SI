@@ -84,12 +84,12 @@
             high blood bool, x
 
             creatine int
-            ejectionint 
-              platelets, 
-              float, serum 
-              creat float,
-               serum sodium int, 
-               time int ignored 
+            ejection int 
+            platelets, 
+            float, serum 
+            creat float,
+            serum sodium int, 
+            time int ignored 
             -->
         <!-- Edad -->
         <div class="col-12">
@@ -97,7 +97,7 @@
             <input type="number" class="form-control" id="ageInput" placeholder="Edad: 20">
         </div>
          
-        <!-- Contenedor de Selects -->
+        <!-- Contenedor de Selects Anemia and Diabetes -->
         <div class="row mt-2 py-1 ">
             <div class="col-6 justify-content-center p-1" style="border-right: 1px solid #b8b8b8;">
                 <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Anemia:</label>
@@ -133,7 +133,7 @@
             
         </div>
 
-        <!-- Contenedor de Selects -->
+        <!-- Contenedor de Selects Fumador and Hipertense-->
         <div class="row mt-2 py-1 ">
             <div class="col-6 justify-content-center p-1" style="border-right: 1px solid #b8b8b8;">
                 <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Fumador:</label>
@@ -169,7 +169,21 @@
             
         </div>
 
+        <!-- Ejection, -->
+        <div class="row">
+            <div class="col-4" style="background-color: red;">
+a              
+                <input type="number" class="form-control" id="ejection">
+            </div>
 
+            <div class="col-4" style="background-color: blue;">
+b
+            </div>
+
+            <div class="col-4" style="background-color: yellow;">
+c
+            </div>
+        </div>
 
         <!-- Bottom Buttons-->
         <div class="row mt-5 column-gap-1">

@@ -1,0 +1,164 @@
+.titulo {
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(190, 189, 189);
+    color: black;
+    width: 100%; /* Hacer que la barra abarque de lado a lado */
+    font-size: 40px;
+    margin-bottom: 20px; /* Añadir margen en la parte inferior del título principal */
+  }
+
+  .titulo-segundo {
+  text-align: center;
+  font-size: 18px;
+  margin-left: 25%; /* Desplaza el título hacia la mitad del ancho de su contenedor */
+  transform: translateX(-50%); /* Centra el título horizontalmente */
+  margin-bottom: 10px;
+  }
+
+  .titulo-tercero {
+    text-align: center;
+    font-size: 18px;
+    margin-left: 75%; /* Desplaza el título hacia la mitad del ancho de su contenedor */
+    transform: translateX(-50%); /* Centra el título horizontalmente */
+    margin-bottom: 10px;
+    margin-top: -130px; /* Ajusta este valor según sea necesario para mover la barra hacia arriba */
+    }
+
+    .subtitulo-dos {
+        text-align: center;
+        font-size: 18px;
+        margin-left: 74%; /* Desplaza el título hacia la mitad del ancho de su contenedor */
+        transform: translateX(-50%); /* Centra el título horizontalmente */
+        margin-bottom: 10px;
+        margin-top: 0px; /* Ajusta este valor según sea necesario para mover la barra hacia arriba */
+    }
+
+  .subtitulo {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px; /* Añadir margen en la parte inferior del subtitulo */
+  }
+
+  .barra {
+    height: 30px;
+    width: 80%; 
+    margin-bottom: 20px; /* Añadir margen en la parte inferior de la barra */
+    margin-left: auto; /* Centrar la barra horizontalmente */
+    margin-right: auto; /* Centrar la barra horizontalmente */
+  }
+
+  .porcentajes {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px; /* Añadir margen en la parte inferior del título principal */
+  }
+
+  .porcentaje-texto {
+    display: inline-block;
+    vertical-align: middle; /* Centra verticalmente el texto junto al cuadrito del color */
+    line-height: 20px; /* Igualar la altura de línea a la altura de los cuadros de color */
+    margin: 0 10px;
+  }
+
+  .barra-segunda {
+  height: 30px;
+  width: 30%; /* Cambiar este valor para ajustar el ancho de la barra */
+  margin-bottom: 20px;
+  margin-left: 25%; /* Desplaza la barra hacia la mitad del ancho de su contenedor */
+  transform: translateX(-50%); /* Centra la barra horizontalmente */
+  }
+
+  .barra-tercera {
+    height: 30px;
+    width: 30%; /* Cambiar este valor para ajustar el ancho de la barra */
+    margin-bottom: 20px;
+    margin-left: 75%; /* Desplaza la barra hacia la mitad del ancho de su contenedor */
+    transform: translateX(-50%); /* Centra la barra horizontalmente */
+    margin-top: 0px; /* Ajusta este valor según sea necesario para mover la barra hacia arriba */
+    }
+
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    }
+
+  .color-cuadro {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle; /* Centra verticalmente el cuadrito del color */
+    }
+
+    .naranja {
+        background-color: orange; /* Color naranja */
+    }
+
+    .verde {
+        background-color: green; /* Color verde */
+    }
+
+    .azul {
+        background-color: blue; /* Color azul */
+    }
+
+    .amarillo {
+        background-color: yellow; /* Color amarillo */
+    }
+
+    .rosa {
+        background-color: pink; /* Color rosa */
+    } 
+
+    .negro {
+        background-color:black; /* Color rosa */
+    }
+
+    .gris {
+        background-color:gray; /* Color rosa */
+    }
+
+    .azulclaro {
+        background-color:lightblue; /* Color rosa */
+    }
+
+    .maiz{
+        background-color:cornsilk; /* Color rosa */
+    }
+
+    .salmon {
+        background-color:salmon; /* Color rosa */
+    }
+  
+.btn-cancelar {
+      background-color: #FF8A7C;
+      color: #660F04;
+      border-color: #660F04;
+      border-width: 5px;
+      padding: 15px;
+      border-radius: 15px;
+}
+.btn-cancelar:hover {
+      background-color: #FF8A7C;
+      color: #660F04;
+      border-color: #660F04;
+      border-width: 5px;
+}
+.btn-generar {
+      background-color: #92F980;
+      color: #136604;
+      border-color: #136604;
+      border-width: 5px;
+      padding: 15px;
+      border-radius: 15px;
+}
+.btn-generar:hover {
+      background-color: #92F980;
+      color: #136604;
+      border-color: #136604;
+      border-width: 5px;
+}
+
+    
