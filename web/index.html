@@ -6,62 +6,10 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>TEMSELSI</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <style>
-        @keyframes move-it {
-            0% {
-                background-position: initial;
-            }
-
-            100% {
-                background-position: 100px 0px;
-            }
-        }
-
-        body {
-            background: repeating-linear-gradient(45deg,
-                    #4D4C7D 0%,
-                    #4D4C7D 25%,
-
-                    #363062 25%,
-                    #363062 50%,
-
-                    #4D4C7D 50%,
-                    #4D4C7D 75%,
-
-                    #363062 75%,
-                    #363062 100%);
-            background-size: 100px 100px;
-            animation: move-it 7s linear infinite;
-        } 
-        
-        .btn-continue,.btn-continue:hover:active{
-            background-color: #363062 !important;
-            color:white !important;
-            border: none !important;
-        } 
-        
-        .btn-continue:hover{
-            background-color: #198754 !important;
-            color:white !important;
-        }
-
-        .btn-abort,.btn-abort:hover:active{
-            background-color: #7f7e97 !important;
-            color:white !important;
-            border: none !important;
-        }
-  
-
-        .btn-abort:hover{
-            background-color: #d14545 !important;
-            color:#4e0d0d !important;
-        }
-
-    </style>
-    <link href="Bootstrap/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="eel.js"></script>
 </head>
-
 
 <body id="cuerpo" class="bg-black">
     <div class="bg-white m-5 p-2 row justify-content-center  mx-auto" style="border-radius: 10px; width: 70%;">
@@ -188,10 +136,11 @@ c
         <!-- Bottom Buttons-->
         <div class="row mt-5 column-gap-1">
             <button type="button" class="col btn btn-abort">Limpiar</button>
-            <button type="button" class="col btn btn-continue">Consultar</button>
+            <button type="button" class="col btn btn-continue" onclick="displayStuffTest()">Consultar</button>
         </div>
 
-    </div>
+    </div> 
+    <script src="js/apiVinculation.js"> </script>
 </body>
 
 </html>
