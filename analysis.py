@@ -13,7 +13,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import random
 
-
 #Importación de Modelo
 df_Analysis = pd.read_csv("heart_failure_clinical_records_dataset.csv")
 
@@ -28,9 +27,8 @@ def comment():
         plt.title(i)
 
         if(iter%6 ==5 or iter == df_Analysis.shape[1]-1): 
-            fig_manager = plt.get_current_fig_manager()
-            fig_manager.full_screen_toggle()
-            plt.tight_layout() 
+            fig = plt.figure()
+            fig.set_size_inches(8, 6)
             plt.show()
         iter = iter + 1
 
@@ -49,7 +47,7 @@ def comment():
             plt.show()
         iter = iter + 1
 
-#Mapa de Correlación 
+# Mapa de Correlación 
 correlation_mat = df_Analysis.corr(method='pearson')
 
 plt.figure(figsize=(11, 7))

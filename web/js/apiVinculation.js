@@ -1,8 +1,26 @@
 
 console.log("he llegao")
+
+//Vinculation API
+
+//Graficas de Tiempo
 function displayStuffTest(){
     eel.graficas();
 }
+
+//Gráficas de Distribución
+function displayDistribution(){
+    eel.distribucion();
+}
+
+//Correlation
+function correlation(){
+    eel.corr();
+}
+
+
+
+
 
 function swapStuff(flagValue){ 
     

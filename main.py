@@ -33,12 +33,35 @@ def graficas():
         plt.plot(df_Analysis[i],color='#5885BF')
         plt.title(i)
 
-        if(iter%6 ==5 or iter == df_Analysis.shape[1]-1): 
-            fig_manager = plt.get_current_fig_manager()
-            fig_manager.full_screen_toggle()
-            plt.tight_layout() 
+        if(iter%6 ==5 or iter == df_Analysis.shape[1]-1):  
+            plt.tight_layout()
             plt.show()
         iter = iter + 1
+
+@eel.expose
+def distribucion():
+    iter = 0 ;
+    for i in df_Analysis:
+        #Serie de tiempo 
+        plt.subplot(2,3,iter%6+1)
+        plt.hist(df_Analysis[i], color='#5885BF')
+        plt.title(i)
+
+        if(iter%6 ==5 or iter == df_Analysis.shape[1]-1):
+            plt.tight_layout()
+            plt.show()
+        iter = iter + 1
+
+@eel.expose
+def corr():
+    correlation_mat = df_Analysis.corr(method='pearson')
+
+    plt.figure(figsize=(11, 7))
+    sns.heatmap(correlation_mat, annot=True, fmt=".2f", xticklabels=False, yticklabels=True, annot_kws={'size': 12})
+
+    plt.tight_layout()
+    plt.show() 
+
 
 #Se despliega el programa  
 eel.start('index.html',fullscreen=True, mode='chrome',size=(2000,2000))

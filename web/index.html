@@ -12,7 +12,6 @@
 </head>
 
 <body id="cuerpo" class="bg-black">
-
     <nav class="navbar bg-white ">
         <div class="container-fluid ">
           <a class="navbar-brand">Predicción para la Insuficiencia Cardíaca</a>
@@ -146,10 +145,9 @@
         <!-- Bottom Buttons-->
         <div class="row mt-5 column-gap-1">
             <button type="button" class="col btn btn-abort">Limpiar</button>
-            <button type="button" class="col btn btn-continue" onclick="displayStuffTest()">Consultar</button>
+            <button type="button" class="col btn btn-continue">Consultar</button>
         </div>
     </div> 
-
 
     <!-- ANALISIS GRÁFICAS -->
     <div id="ana" class="bg-white m-5 p-2 row justify-content-center  mx-auto" style="border-radius: 10px; width: 70%; display: none;">
@@ -167,11 +165,11 @@
         <div class="row mb-2 column-gap-1"> 
             <label style="font-weight: bold;">Gráficas de Análisis:</label>
             <button type="button" class="col btn btn-continue" onclick="displayStuffTest()">Series de Tiempo</button>
-            <button type="button" class="col btn btn-continue" onclick="displayStuffTest()">Distribución de Valores</button>
+            <button type="button" class="col btn btn-continue" onclick="displayDistribution()">Distribución de Valores</button>
         </div>
         <div class="row mb-2 column-gap-1"> 
             <label style="font-weight: bold;">Mapa de Correlación:</label>
-            <button type="button" class="col btn btn-continue" onclick="displayStuffTest()">Observar</button>
+            <button type="button" class="col btn btn-continue" onclick="correlation()">Observar</button>
             
         </div>
         <div class="row mb-3  column-gap-1"> 
