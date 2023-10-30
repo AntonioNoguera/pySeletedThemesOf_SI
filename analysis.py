@@ -47,11 +47,19 @@ def comment():
             plt.show()
         iter = iter + 1
 
-# Mapa de Correlación 
-correlation_mat = df_Analysis.corr(method='pearson')
+    # Mapa de Correlación 
+    correlation_mat = df_Analysis.corr(method='pearson')
 
-plt.figure(figsize=(11, 7))
-sns.heatmap(correlation_mat, annot=True, fmt=".2f", xticklabels=True, yticklabels=True, annot_kws={'size': 12})
+    plt.figure(figsize=(11, 7))
+    sns.heatmap(correlation_mat, annot=True, fmt=".2f", xticklabels=True, yticklabels=True, annot_kws={'size': 12})
 
-plt.tight_layout()
-plt.show() 
+    plt.tight_layout()
+    plt.show() 
+
+df_cleared = pd.read_csv("heart_failure_clinical_records_dataset_cleared.csv")
+
+x = df_cleared.loc[:, 'age':'time'].rename(columns=lambda x: x.strip())
+y = df_cleared['DEATH_EVENT'] 
+
+print(x.head())
+print(y.head())
