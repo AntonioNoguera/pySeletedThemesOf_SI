@@ -8,6 +8,15 @@
     }
 }
 
+.active,.navbar-brand{
+        color:#363062 !important;
+}
+
+.nav-link{
+    color: #4D4C7D !important;
+    cursor:pointer;
+}
+
 body {
     background: repeating-linear-gradient(45deg,
             #4D4C7D 0%,
