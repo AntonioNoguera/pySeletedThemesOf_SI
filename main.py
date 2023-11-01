@@ -69,10 +69,16 @@ def corr():
 def entrenarRed():
     xDF = df_Cleared.iloc[:,0:6]
     yDF = df_Cleared.iloc[:,6]
+
+
     
 
     x = xDF.to_numpy()
     y = yDF.to_numpy()
+    
+    ##Implementando PCA para observar rendimiento
+    
+    
     print(xDF.head())
 
     from sklearn.metrics import accuracy_score 
@@ -80,7 +86,7 @@ def entrenarRed():
     #X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
     
-    model = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=10000,verbose=True, random_state=42)    
+    model = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=10000,verbose=True, activation='tanh',solver='adam',tol=1e-6,n_iter_no_change=20)    
     model.fit(x,y)
     y_pred = model.predict(x)
 
