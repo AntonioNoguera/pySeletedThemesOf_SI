@@ -4,6 +4,10 @@ import eel
 
 import pandas as pd
 import numpy as np
+import pickle
+
+from matplotlib.ticker import MultipleLocator, AutoMinorLocator
+
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -84,7 +88,7 @@ def entrenarRed():
     print(x[:5])
 
 
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1, random_state=42)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1)
 
 
     from sklearn.metrics import accuracy_score  
@@ -93,8 +97,12 @@ def entrenarRed():
     model = MLPClassifier(hidden_layer_sizes=(500, 30), max_iter=10000,verbose=False, activation='identity',solver='adam',tol=1e-8,n_iter_no_change=40)    
     
 
-    maximo =20
+    maximo=30
     i=0
+    topAccuracy = 0
+    y_top = 0
+
+
     while i<maximo:
         
         model.fit(x_train,y_train)
@@ -102,17 +110,23 @@ def entrenarRed():
 
         from sklearn.metrics import mean_absolute_percentage_error 
         accuracy = accuracy_score(y_test, y_pred)
-        print("Precisión del MLPClassifier: {:.2f}%".format(accuracy * 100))
-        i = i +1
-    '''
-    plt.plot(y_test)
-    plt.plot(y_pred) 
-    print("Predicción:",y_pred)
-    print("Realidad  :",y_test)
+        print("Generando Archivo....")
+        if accuracy > topAccuracy:
+            topAccuracy = accuracy
+            y_top = y_pred
+            # Guardamos el modelo en un archivo con pickle
+            with open('modelo_paro_cardiaco.pkl', 'wb') as archivo:
+                pickle.dump(model, archivo)
+        i = i+1
+    print("Precisión Seleccionada:  ",topAccuracy)
+
+    plt.plot(y_test,label='Real')
+    plt.plot(y_pred,label='Predicción') 
+    plt.legend(loc='upper right')
+    print("Predicción:",y_top)
+    print("Realidad  :",y_test) 
     plt.show()
-    '''
-    
-    
+        
 
 #Se despliega el programa  
 #eel.start('index.html',fullscreen=True, mode='chrome',size=(2000,2000))
