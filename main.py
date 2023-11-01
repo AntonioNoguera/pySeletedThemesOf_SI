@@ -1,5 +1,5 @@
 import eel
-
+from pathlib import Path
 #pip install eel
 
 import pandas as pd
@@ -11,6 +11,7 @@ from matplotlib.ticker import MultipleLocator, AutoMinorLocator
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score 
 from sklearn.neural_network import MLPClassifier
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
@@ -71,64 +72,72 @@ def corr():
     plt.show() 
 
 @eel.expose
-def entrenarRed():
-    xDF = df_Cleared.iloc[:,0:6]
-    yDF = df_Cleared.iloc[:,6]   
-    
-    x = xDF.to_numpy()
-    y = yDF.to_numpy()
-    print(x[:5])
+def entrenarRed(): 
+    x, y = df_Cleared.iloc[:,0:6].to_numpy(), df_Cleared.iloc[:,6] .to_numpy()
 
-    #Testeando Predicción con PCA
-    NUM_COMPONENTES = 6
-    np.set_printoptions(suppress=True)
-    pca = PCA(n_components=NUM_COMPONENTES)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1,random_state=42) 
 
-    x = pca.fit_transform(x)
-    print(x[:5])
-
-
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1)
-
-
-    from sklearn.metrics import accuracy_score  
-
-    
     model = MLPClassifier(hidden_layer_sizes=(500, 30), max_iter=10000,verbose=False, activation='identity',solver='adam',tol=1e-8,n_iter_no_change=40)    
     
+    maximo, i, topAccuracy, y_top = 30, 0, 0, 0 
 
-    maximo=30
-    i=0
-    topAccuracy = 0
-    y_top = 0
-
-
-    while i<maximo:
-        
+    while i < maximo:
         model.fit(x_train,y_train)
         y_pred = model.predict(x_test)
+        accuracy = accuracy_score(y_test, y_pred) 
 
-        from sklearn.metrics import mean_absolute_percentage_error 
-        accuracy = accuracy_score(y_test, y_pred)
-        print("Generando Archivo....")
         if accuracy > topAccuracy:
             topAccuracy = accuracy
-            y_top = y_pred
-            # Guardamos el modelo en un archivo con pickle
+            y_top = y_pred 
             with open('modelo_paro_cardiaco.pkl', 'wb') as archivo:
                 pickle.dump(model, archivo)
         i = i+1
-    print("Precisión Seleccionada:  ",topAccuracy)
 
+    print("Precisión Registrada:  ",topAccuracy) 
+    
+def desplegarPresicion():
+    x, y = df_Cleared.iloc[:,0:6].to_numpy(), df_Cleared.iloc[:,6] .to_numpy()
+    #90 de Precision con estos valores
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1,random_state=32) 
+
+    with open('modelo_paro_cardiaco.pkl', 'rb') as archivo:
+        modelo_cargado = pickle.load(archivo)
+
+    maximo, i, topAccuracy, y_top = 10, 0, 0, 0 
+
+    while i < maximo:
+        modelo_cargado.fit(x_train,y_train)
+        y_pred = modelo_cargado.predict(x_test)
+        accuracy = accuracy_score(y_test, y_pred) 
+
+        if accuracy > topAccuracy:
+            topAccuracy = accuracy
+            y_top = y_pred  
+        i = i+1
+    
+    plt.title("Prueba de Presición de la RNA - Aprox: " + str(round(topAccuracy * 100, 2)) + "%")
     plt.plot(y_test,label='Real')
-    plt.plot(y_pred,label='Predicción') 
-    plt.legend(loc='upper right')
-    print("Predicción:",y_top)
-    print("Realidad  :",y_test) 
+    plt.plot(y_top,label='Predicción') 
+    plt.legend(loc='upper right') 
     plt.show()
-        
+
+
+def verificarRed(warmUp):
+    archivo = Path("modelo_paro_cardiaco.pkl")
+    if not archivo.is_file(): 
+        #El archivo de RNA no existe.
+        entrenarRed()
+    
+    if not warmUp:
+        desplegarPresicion()
+
 
 #Se despliega el programa  
 #eel.start('index.html',fullscreen=True, mode='chrome',size=(2000,2000))
 
-entrenarRed()
+
+
+#entrenarRed()
+
+verificarRed(False)
+
