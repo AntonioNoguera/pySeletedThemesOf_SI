@@ -13,6 +13,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_percentage_error
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
 import random
 from sklearn.model_selection import train_test_split
 
@@ -68,14 +69,20 @@ def corr():
 @eel.expose
 def entrenarRed():
     xDF = df_Cleared.iloc[:,0:6]
-    yDF = df_Cleared.iloc[:,6]
-
-    #Testeando Predicción con PCA
-    
-   
+    yDF = df_Cleared.iloc[:,6]   
     
     x = xDF.to_numpy()
     y = yDF.to_numpy()
+    print(x[:5])
+
+    #Testeando Predicción con PCA
+    NUM_COMPONENTES = 6
+    np.set_printoptions(suppress=True)
+    pca = PCA(n_components=NUM_COMPONENTES)
+
+    x = pca.fit_transform(x)
+    print(x[:5])
+
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1, random_state=42)
 
@@ -83,19 +90,28 @@ def entrenarRed():
     from sklearn.metrics import accuracy_score  
 
     
-    model = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=10000,verbose=True, activation='tanh',solver='adam',tol=1e-6,n_iter_no_change=20)    
-    model.fit(x_train,y_train)
-    y_pred = model.predict(x_test)
-
-    from sklearn.metrics import mean_absolute_percentage_error 
-    accuracy = accuracy_score(y_test, y_pred)
-    print("Precisión del MLPClassifier: {:.2f}%".format(accuracy * 100))
+    model = MLPClassifier(hidden_layer_sizes=(500, 30), max_iter=10000,verbose=False, activation='identity',solver='adam',tol=1e-8,n_iter_no_change=40)    
     
+
+    maximo =20
+    i=0
+    while i<maximo:
+        
+        model.fit(x_train,y_train)
+        y_pred = model.predict(x_test)
+
+        from sklearn.metrics import mean_absolute_percentage_error 
+        accuracy = accuracy_score(y_test, y_pred)
+        print("Precisión del MLPClassifier: {:.2f}%".format(accuracy * 100))
+        i = i +1
+    '''
     plt.plot(y_test)
     plt.plot(y_pred) 
     print("Predicción:",y_pred)
     print("Realidad  :",y_test)
     plt.show()
+    '''
+    
     
 
 #Se despliega el programa  
