@@ -70,32 +70,31 @@ def entrenarRed():
     xDF = df_Cleared.iloc[:,0:6]
     yDF = df_Cleared.iloc[:,6]
 
-
+    #Testeando Predicción con PCA
     
-
+   
+    
     x = xDF.to_numpy()
     y = yDF.to_numpy()
-    
-    ##Implementando PCA para observar rendimiento
-    
-    
-    print(xDF.head())
 
-    from sklearn.metrics import accuracy_score 
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1, random_state=42)
 
-    #X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+    from sklearn.metrics import accuracy_score  
 
     
     model = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=10000,verbose=True, activation='tanh',solver='adam',tol=1e-6,n_iter_no_change=20)    
-    model.fit(x,y)
-    y_pred = model.predict(x)
+    model.fit(x_train,y_train)
+    y_pred = model.predict(x_test)
 
     from sklearn.metrics import mean_absolute_percentage_error 
-    accuracy = accuracy_score(y, y_pred)
+    accuracy = accuracy_score(y_test, y_pred)
     print("Precisión del MLPClassifier: {:.2f}%".format(accuracy * 100))
     
-    plt.plot(y)
-    plt.plot(y_pred,color='#FF0000') 
+    plt.plot(y_test)
+    plt.plot(y_pred) 
+    print("Predicción:",y_pred)
+    print("Realidad  :",y_test)
     plt.show()
     
 
