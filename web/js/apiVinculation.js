@@ -17,7 +17,9 @@ function displayDistribution(){
 function correlation(){
     eel.corr();
 }
-
+function displayAccuracy(){
+    eel.entrenarRed();
+}
 
 
 
