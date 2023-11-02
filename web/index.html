@@ -102,14 +102,19 @@
             </div>
         </div>
 
-        <!--Resultado de Prediccion-->
-        <div class="row" >
-            <p id="ResPrediccion">&nbsp;</p>
+        <!--Resultado de Prediccion--> 
+        <div class="row align-items-center justify-content-center"> 
+            <div class="col-8 ">
+                <div class="row align-items-center justify-content-center column-gap-1">
+                    <p id="ResPrediccion" class="text-center col-8" style="margin-bottom: 0 !important; font-style: italic;">LOREM IPSUM</p>
+                    <button class="col-1 btn btn-outline-success p-0">SI</button> 
+                    <button class="col-1 btn btn-outline-danger p-0">No</button>
+                </div>
+            </div>
         </div>
-         
 
         <!-- Bottom Buttons-->
-        <div class="row mt-2 column-gap-1">
+        <div class="row mt-1 column-gap-1">
             <button type="button" class="col btn btn-abort">Limpiar</button>
             <button type="button" class="col btn btn-continue" onclick="prediction()">Consultar</button>
         </div>
