@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import pickle
+import csv
 
 from matplotlib.ticker import MultipleLocator, AutoMinorLocator
 
@@ -133,6 +134,17 @@ def prediccion(edad,hipertension,eyeccion,plaquetas,creatinina,sodio):
     print(resultado)
 
     return int(resultado)
+
+@eel.expose
+def nuevoMiembro(edad,hipertension,eyeccion,plaquetas,creatinina,sodio,tag): 
+    archivo_csv = 'heart_failure_clinical_records_dataset_cleared.csv'
+    nueva_linea = [edad,hipertension,eyeccion,plaquetas,creatinina,sodio,tag]
+    with open(archivo_csv, mode='a', newline='') as file:
+        writer = csv.writer(file)
+
+        # Escribe la nueva línea en el archivo CSV
+        writer.writerow(nueva_linea)
+    print("Linea Añadida con exito.")
 
 #Se despliega el programa  
 eel.start('index.html',fullscreen=True, mode='chrome',size=(2000,2000))

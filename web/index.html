@@ -54,12 +54,12 @@
                 <div id="hipertensoHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
                     <div class="col-6 d-grid p-0">
                        <input type="radio" class="btn btn-check btn-block" name="hipertensoInput" id="successHipertenso" value="hipTrue" autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="successHipertenso">Soy Diabético</label>
+                        <label class="btn btn-outline-success" for="successHipertenso">Soy Hipertenso</label>
                     </div>
 
                     <div class="col-5 d-grid p-0">
                         <input type="radio" class="btn-check" name="hipertensoInput" id="dangerHipertenso" value="hipFalse" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="dangerHipertenso">No tengo</label>
+                        <label class="btn btn-outline-danger" for="dangerHipertenso">No soy Hipertenso</label>
                     </div>   
                 </div>
             </div>  
@@ -107,8 +107,8 @@
             <div class="col-8 ">
                 <div class="row align-items-center justify-content-center column-gap-1">
                     <p id="ResPrediccion" class="text-center col-8" style="margin-bottom: 0 !important; font-style: italic; font-size: 15px;">LOREM IPSUM</p>
-                    <button class="col-1 btn btn-outline-success p-0">SI</button> 
-                    <button class="col-1 btn btn-outline-danger p-0">No</button>
+                    <button class="col-1 btn btn-outline-success p-0" onclick="savingNewData(1)">SI</button> 
+                    <button class="col-1 btn btn-outline-danger p-0" onclick="savingNewData(0)">No</button>
                 </div>
             </div>
         </div>
