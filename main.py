@@ -97,27 +97,17 @@ def entrenarRed():
     
 def desplegarPresicion():
     x, y = df_Cleared.iloc[:,0:6].to_numpy(), df_Cleared.iloc[:,6] .to_numpy()
-    #90 de Precision con estos valores
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1,random_state=32) 
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1,random_state=12) 
 
     with open('modelo_paro_cardiaco.pkl', 'rb') as archivo:
         modelo_cargado = pickle.load(archivo)
 
-    maximo, i, topAccuracy, y_top = 10, 0, 0, 0 
-
-    while i < maximo:
-        modelo_cargado.fit(x_train,y_train)
-        y_pred = modelo_cargado.predict(x_test)
-        accuracy = accuracy_score(y_test, y_pred) 
-
-        if accuracy > topAccuracy:
-            topAccuracy = accuracy
-            y_top = y_pred  
-        i = i+1
+    y_pred = modelo_cargado.predict(x_test)
+    topAccuracy = accuracy_score(y_test, y_pred) 
     
     plt.title("Prueba de Presición de la RNA - Aprox: " + str(round(topAccuracy * 100, 2)) + "%")
     plt.plot(y_test,label='Real')
-    plt.plot(y_top,label='Predicción') 
+    plt.plot(y_pred,label='Predicción') 
     plt.legend(loc='upper right') 
     plt.show()
 
