@@ -8,7 +8,6 @@ import pickle
 
 from matplotlib.ticker import MultipleLocator, AutoMinorLocator
 
-
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score 
@@ -94,7 +93,8 @@ def entrenarRed():
         i = i+1
 
     print("Precisión Registrada:  ",topAccuracy) 
-    
+
+@eel.expose
 def desplegarPresicion():
     x, y = df_Cleared.iloc[:,0:6].to_numpy(), df_Cleared.iloc[:,6] .to_numpy()
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1,random_state=12) 
@@ -111,7 +111,7 @@ def desplegarPresicion():
     plt.legend(loc='upper right') 
     plt.show()
 
-
+@eel.expose
 def verificarRed(warmUp):
     archivo = Path("modelo_paro_cardiaco.pkl")
     if not archivo.is_file(): 
@@ -121,13 +121,18 @@ def verificarRed(warmUp):
     if not warmUp:
         desplegarPresicion()
 
+@eel.expose
+def prediccion(edad,hipertension,eyeccion,plaquetas,creatinina,sodio):
+    arreglo_numpy = np.array([[edad,eyeccion,creatinina,sodio,plaquetas,hipertension]])
+    
+    with open('modelo_paro_cardiaco.pkl', 'rb') as archivo:
+        modelo_cargado = pickle.load(archivo)
+
+    y_pred = modelo_cargado.predict(arreglo_numpy)
+    resultado = y_pred[0]
+    print(resultado)
+
+    return int(resultado)
 
 #Se despliega el programa  
-#eel.start('index.html',fullscreen=True, mode='chrome',size=(2000,2000))
-
-
-
-#entrenarRed()
-
-verificarRed(False)
-
+eel.start('index.html',fullscreen=True, mode='chrome',size=(2000,2000))

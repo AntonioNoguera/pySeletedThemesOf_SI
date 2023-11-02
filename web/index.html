@@ -14,17 +14,17 @@
 <body id="cuerpo" class="bg-black">
     <nav class="navbar bg-white ">
         <div class="container-fluid ">
-          <a class="navbar-brand">Predicción para la Insuficiencia Cardíaca</a>
-          <ul class="nav nav-underline px-4">
+            <a class="navbar-brand">Predicción para la Insuficiencia Cardíaca</a>
+            <ul class="nav nav-underline px-4">
             <li class="nav-item">
-              <a class="nav-link active" id="prelink" onclick="swapStuff(0)">Predicción</a>
+                <a class="nav-link active" id="prelink" onclick="swapStuff(0)">Predicción</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="analink" onclick="swapStuff(1)">Gráficas</a>
+                <a class="nav-link" id="analink" onclick="swapStuff(1)">Gráficas</a>
             </li> 
-          </ul>
+            </ul>
         </div>
-      </nav>
+    </nav>
     
     <!-- PREDICTOR -->  
     <div id="pred" class="bg-white m-5 p-2 row justify-content-center  mx-auto" style="border-radius: 10px; width: 70%;">
@@ -36,116 +36,82 @@
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, porro? Magni nemo quidem natus neque, dolorum perferendis nesciunt a! Pariatur numquam, eveniet architecto eos eum perspiciatis quaerat voluptate error asperiores.
             </p>
-        </div> 
-        
-        <!-- Arrancan los inputs  
-        
-            Atributos desechados
-            Diabetes
-            Sexo
-            Fumador
-        
-        -->
+        </div>  
 
-        <!-- Edad -->
-        <div class="col-12">
-            <label for="ageInput" class="form-label" style="font-weight: bold;">Ingrese su edad:</label>
-            <input type="number" class="form-control" id="ageInput" placeholder="Edad: 20">
-        </div>
-         
         <!-- Contenedor de Selects Anemia and Diabetes -->
-        <div class="row mt-2 py-1">
-            <div class="col-6 justify-content-center p-1" style="border-right: 1px solid #b8b8b8;">
-                <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Anemia:</label>
-            
-                <div id="anemiaHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
-                    <div class="col-6 d-grid p-0">
-                        <input type="radio" class="btn btn-check btn-block" name="anemia" id="successAnemia" autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="successAnemia">Sufro Anemia</label>
-                    </div>
-                        
-                    <div class="col-5 d-grid p-0">
-                        <input type="radio" class="btn-check" name="anemia" id="dangerAnemia" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="dangerAnemia">No tengo</label>
-                    </div>  
-                </div>
+        <div class="row mt-2 d-flex align-items-center">
+            <div class="col-6 justify-content-center" style="border-right: 1px solid #b8b8b8;"> 
+                <label for="age" class="d-flex justify-content-center" style="font-weight: bold;">Ingrese su edad:</label>
+                <!-- Edad -->
+                <span class="input-group" id="age">
+                    <input type="text" id="edad" class="form-control">
+                    <span class="input-group-text" style="background-color: rgb(222, 226, 230);font-weight: bold;">Edad</span> 
+                </span>
             </div>  
 
-            <div class="col-6 justify-content-center p-1" >
-                <label for="anemiaHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Diabetes:</label>
-            
-                <div id="anemiaHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
+            <div class="col-6 justify-content-center" >
+                <label for="hipertensoHolder" class=" d-flex justify-content-center" style="font-weight: bold;">Hipertenso:</label>
+                <div id="hipertensoHolder" class="justify-content-center row column-gap-2" style="padding: 0;">
                     <div class="col-6 d-grid p-0">
-                        <input type="radio" class="btn btn-check btn-block" name="Diabetes" id="successDiabetes" autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="successDiabetes">Soy Diabético</label>
+                       <input type="radio" class="btn btn-check btn-block" name="hipertensoInput" id="successHipertenso" value="hipTrue" autocomplete="off" checked>
+                        <label class="btn btn-outline-success" for="successHipertenso">Soy Diabético</label>
                     </div>
-                        
+
                     <div class="col-5 d-grid p-0">
-                        <input type="radio" class="btn-check" name="Diabetes" id="dangerDiabetes" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="dangerDiabetes">No tengo</label>
-                    </div>  
+                        <input type="radio" class="btn-check" name="hipertensoInput" id="dangerHipertenso" value="hipFalse" autocomplete="off">
+                        <label class="btn btn-outline-danger" for="dangerHipertenso">No tengo</label>
+                    </div>   
                 </div>
             </div>  
-            
         </div> 
+
         <!-- Ejection, -->
         <div class="row my-3 d-flex align-items-center">
-            <div class="col-4" style="border-right: 1px solid #b8b8b8;">
+            <div class="col-6" style="border-right: 1px solid #b8b8b8;">
                 <label class="d-flex justify-content-center text-center" for="testing" style="font-weight: bold;">Fracción de Eyección:</label>    
                 <span class="input-group" id="testing">
-                    <input type="text" class="form-control">
-                    <span class="input-group-text">%</span> 
+                    <input type="text" id="eyeccion" class="form-control">
+                    <span class="input-group-text" style="background-color: rgb(222, 226, 230);font-weight: 800;">%</span> 
                 </span>
             </div>
 
-            <div class="col-4" style="border-right: 1px solid #b8b8b8;">
+            <div class="col-6">
                 <label class="d-flex justify-content-center text-center" for="testing" style="font-weight: bold;">Plaquetas:</label>    
                 <span class="input-group" id="testing">
-                    <input type="text" class="form-control">
-                    <span class="input-group-text">kPlq/mL</span> 
-                </span>
-            </div>
-
-            <div class="col-4">
-                <label class="d-flex justify-content-center text-center" for="days" style="font-weight: bold;">Días de Seguimiento:</label>    
-                <span class="input-group" id="days">
-                    <input type="text" class="form-control">
-                    <span class="input-group-text">días</span> 
+                    <input type="text" id="plaquetas" class="form-control">
+                    <span class="input-group-text" style="background-color: rgb(222, 226, 230);font-weight: bold;">kPlaq/ml</span> 
                 </span>
             </div>
         </div>
-        
-        <!-- Ejection, -->
+
         <div class="row my-3 d-flex align-items-center">
-            <div class="col-4" style="border-right: 1px solid #b8b8b8;">
+            <div class="col-6" style="border-right: 1px solid #b8b8b8;">
                 <label class="d-flex justify-content-center text-center" for="testing" style="font-weight: bold;">Suero de Creatinina:</label>    
                 <span class="input-group" id="testing">
-                    <input type="text" class="form-control">
-                    <span class="input-group-text">mg/dL</span> 
+                    <input type="text" id="creatinina" class="form-control">
+                    <span class="input-group-text" style="background-color: rgb(222, 226, 230);font-weight: bold;">mg/dL</span> 
                 </span>
             </div>
 
-            <div class="col-4" style="border-right: 1px solid #b8b8b8;">
-                <label class="d-flex justify-content-center text-center" for="testing" style="font-weight: bold;">Sodio Sérico:</label>    
+            <div class="col-6">
+                <label class="d-flex justify-content-center text-center" for="testing" style="font-weight: bold;">Suero Sodio:</label>    
                 <span class="input-group" id="testing">
-                    <input type="text" class="form-control">
-                    <span class="input-group-text">mEq/L</span> 
-                </span>
-            </div>
-
-            <div class="col-4">
-                <label class="d-flex justify-content-center text-center" for="testing" style="font-weight: bold;">Creatinina Fosfocinasa:</label>    
-                <span class="input-group" id="testing">
-                    <input type="text" class="form-control">
-                    <span class="input-group-text">mcg/L</span> 
+                    <input type="text" id="sodio" class="form-control">
+                    <span class="input-group-text" style="background-color: rgb(222, 226, 230);font-weight: bold;">mEq/L</span> 
                 </span>
             </div>
         </div>
 
+        <!--Resultado de Prediccion-->
+        <div class="row" >
+            <p id="ResPrediccion">&nbsp;</p>
+        </div>
+         
+
         <!-- Bottom Buttons-->
-        <div class="row mt-5 column-gap-1">
+        <div class="row mt-2 column-gap-1">
             <button type="button" class="col btn btn-abort">Limpiar</button>
-            <button type="button" class="col btn btn-continue">Consultar</button>
+            <button type="button" class="col btn btn-continue" onclick="prediction()">Consultar</button>
         </div>
     </div> 
 
