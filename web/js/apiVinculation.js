@@ -42,12 +42,11 @@ function callback(resultado){
     console.log("Callback llamado");
     console.log(resultado);
     var predicado= "La predicción indica que el paciente a ";
+    const final = ", por favor, indique si ¡la predicción es correcta!";
 
-    document.getElementById("ResPrediccion").innerHTML = resultado? predicado+="muerto." : predicado+="sobrevivido.";
+    document.getElementById("ResPrediccion").innerHTML = resultado? predicado+="muerto" +final : predicado+="sobrevivido"+final;
+    document.getElementById("predHeader").style.display="flex";
 }
-
-
-
 
 function swapStuff(flagValue){ 
     
@@ -59,4 +58,18 @@ function swapStuff(flagValue){
 
     document.getElementById(flagTrue).classList.add("active");
     document.getElementById(flagOut).classList.remove("active");
+}
+
+function clearAll(){
+    document.getElementById("edad").value="";
+    document.getElementsByName("hipertensoInput")[0].checked=true;
+ 
+    document.getElementById("eyeccion").value="";
+    document.getElementById("plaquetas").value="";
+    document.getElementById("creatinina").value="";
+    document.getElementById("sodio").value="";
+}
+
+function savingNewData(comparacionPrediccion){
+
 }
