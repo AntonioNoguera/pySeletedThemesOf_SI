@@ -70,7 +70,7 @@ function swapStuff(flagValue){
 function clearAll(){
     document.getElementById("edad").value="";
     document.getElementsByName("hipertensoInput")[0].checked=true;
- 
+    
     document.getElementById("eyeccion").value="";
     document.getElementById("plaquetas").value="";
     document.getElementById("creatinina").value="";
