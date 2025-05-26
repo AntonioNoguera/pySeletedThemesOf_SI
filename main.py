@@ -147,4 +147,4 @@ def nuevoMiembro(edad,hipertension,eyeccion,plaquetas,creatinina,sodio,tag):
     print("Linea Añadida con exito.")
 
 #Se despliega el programa  
-eel.start('index.html',fullscreen=True, mode='chrome',size=(2000,2000))
+eel.start('index.html', mode='chrome', size=(2000, 2000))
